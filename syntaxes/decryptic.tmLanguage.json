@@ -1,0 +1,38 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Decryptic",
+	"patterns": [
+		{
+			"include": "#invalid"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#section-lines"
+		}
+	],
+	"repository": {
+		"invalid": {
+			"patterns": [
+				{
+					"name": "invalid.too-long.decryptic",
+					"match": "^.{81}.*\n"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.decryptic",
+				"match": "^\\s*!.*"
+			}]
+		},
+		"section-lines": {
+			"patterns": [{
+				"name": "support.type.decryptic",
+				"match": "^\\s*Section.*"
+			}]
+		}
+	},
+	"scopeName": "source.decryptic"
+}

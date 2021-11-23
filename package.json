@@ -1,0 +1,31 @@
+{
+    "name": "decryptic",
+    "displayName": "Decryptic",
+    "description": "Delphic LIS Decryptic VS Code Syntax Highlighting",
+    "version": "0.0.0",
+    "author": "James Ingerson",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pl-jamesi/decryptic.git"
+    },
+    "engines": {
+        "vscode": "^1.56.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "decryptic",
+            "aliases": ["Decryptic", "dcr", "decr", "decrypt"],
+            "extensions": [".dcr"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "decryptic",
+            "scopeName": "source.decryptic",
+            "path": "./syntaxes/decryptic.tmLanguage.json"
+        }]
+    }
+}
