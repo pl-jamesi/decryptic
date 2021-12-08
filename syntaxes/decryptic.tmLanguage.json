@@ -12,10 +12,7 @@
 			"include": "#section-lines"
 		},
 		{
-			"include": "#declarative-lines"
-		},
-		{
-			"include": "#parameterized-lines"
+			"include": "#expression"
 		}
 	],
 	"repository": {
@@ -42,20 +39,66 @@
 		"declarative-lines": {
 			"captures": {
 				"2": {
-					"name": "variable.parameter.decryptic"
+					"name": "storage.decryptic"
 				}
 			},
 			"match": "(^\\s*)((?i)Array|Declare|Global|Map|Set|Update|EndUpdate)(\\(.*\\))",
-			"name": "parameterized-line.decryptic"
+			"name": "declarative-line.decryptic"
 		},
-		"parameterized-lines": {
-			"captures": {
-				"2": {
-					"name": "entity.name.function.decryptic"
-				}
+		"expression": {
+			"patterns": [{ "include": "#keyword" }, { "include": "#declaration" }, { "include": "#conditional" }, { "include": "#logging" }, { "include": "#paren-expression" }, { "include": "#inline-comment" }]
+		},
+		"string-literal": {
+			"match": "\\'[a-zA-Z0-9\\s_\\-%=\\/\\+\\&\\|,]*\\'",
+			"name": "string.decryptic"
+		},
+		"type": {
+			"match": "\\b((?i)String|Int|Real|No|Change)\\b",
+			"name": "variable.parameter.decryptic"
+		},
+		"logging": {
+			"match": "\\b((?i)Log|Output|EndOutput|SendToAnal|Show|WriteError|WriteHost|WritePort)\\b",
+			"name": "variable.parameter.decryptic"
+		},
+		"conditional": {
+			"match": "\\b((?i)GoTo|If|Else|EndIf|InRange|OutRange|EndRange|Label|While|EndWhile|AND|OR)\\b",
+			"name": "keyword.control.decryptic"
+		},
+		"ascii-char": {
+			"match": "(\\$[0-9]\\d*)\\b",
+			"name": "constant.character.escape.backslash.decryptic"
+		},
+		"numeric-literal": {
+			"match": "([0-9]\\d*)\\b",
+			"name": "constant.numeric.decimal.decryptic"
+		},
+		"inline-comment": {
+			"match": "!.*",
+			"name": "comment.line.decryptic"
+		},
+		"operator": {
+			"match": "<|>|=",
+			"name": "keyword.control.decryptic"
+		},
+		"keyword": {
+			"match": "\\b((?i)Add|Append|BatchFirst|BatchLast|Char|CheckLabNo|CheckSum|Convertcase|CopyStr|Datetime|DeclareMean|Decode|Delay|Delete|DeleteLL|Div|Encode|EXP|Field|Format|Get|GetAnaParams|GetBatchKeys|GetBatSeqKeys|GetError|GetIpParams|GetOpParams|Getmean|InsertLit|InsertLL|Integer|Length|LN|LoadCurrent|LoadData|LRC|Mean|Mult|NullRecord|Ord|Positn|ReadMessage|Real|Register|ReplaceLt|Round|SaveData|SaveUpdate|Schedule|SelectLLBS|SelectLLReqno|SetMean|SetSent|StoreLL|Sub|Succ|Westgard)\\b",
+			"name": "entity.name.function.decryptic"
+		},
+		"declaration": {
+			"match": "\\b((?i)Array|Declare|Global|Map|Set|Update|EndUpdate)\\b",
+			"name": "storage.decryptic"
+		},
+		"paren-expression": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+			  "0": { "name": "punctuation.paren.open" }
 			},
-			"match": "(^\\s*)((?i)Add|Append|BatchFirst|BatchLast|Char|CheckLabNo|CheckSum|Convertcase|CopyStr|Datetime|DeclareMean|Decode|Delay|Delete|DeleteLL|Div|Encode|EXP|Field|Format|Get|GetAnaParams|GetBatchKeys|GetBatSeqKeys|GetError|GetIpParams|GetOpParams|Getmean|InsertLit|InsertLL|Integer|Length|LN|LoadCurrent|LoadData|LRC|Mean|Mult|NullRecord|Ord|Positn|ReadMessage|Real|Register|ReplaceLt|Round|SaveData|SaveUpdate|Schedule|SelectLLBS|SelectLLReqno|SetMean|SetSent|StoreLL|Sub|Succ|Westgard)(\\(.*\\))",
-			"name": "parameterized-line.decryptic"
+			"endCaptures": {
+			  "0": { "name": "punctuation.paren.close" }
+			},
+			"name": "expression.group",
+			"patterns": [{ "include": "#string-literal" }, { "include": "#ascii-char" }, { "include": "#numeric-literal" }, { "include": "#type" }, { "include": "#operator" }]
 		}
 	},
 	"scopeName": "source.decryptic"
