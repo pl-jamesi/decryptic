@@ -6,11 +6,7 @@ Naive syntax highlighting for Decryptic (\*.dcr) files for the Delphic LIS.
 
 Primitive support based on existing Pathlab Decryptic protocols:
 
-TODO
-
-## Requirements
-
-TODO
+<img src="https://github.com/pl-jamesi/decryptic/blob/master/images/decryptic-highlighting-example.png?raw=true" alt="Example Decryptic Highlighting" width="600px" />
 
 ## Installation
 
@@ -18,7 +14,7 @@ TODO
 
 ## Known Issues
 
-TODO
+Uses inappropriate names rather than custom theming to make colouration work.
 
 ## Contributing
 
