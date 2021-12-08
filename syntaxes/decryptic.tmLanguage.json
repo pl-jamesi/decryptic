@@ -9,9 +9,6 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#section-lines"
-		},
-		{
 			"include": "#expression"
 		}
 	],
@@ -30,12 +27,6 @@
 				"match": "^\\s*!.*"
 			}]
 		},
-		"section-lines": {
-			"patterns": [{
-				"name": "support.type.decryptic",
-				"match": "^\\s*Section.*"
-			}]
-		},
 		"declarative-lines": {
 			"captures": {
 				"2": {
@@ -46,10 +37,10 @@
 			"name": "declarative-line.decryptic"
 		},
 		"expression": {
-			"patterns": [{ "include": "#keyword" }, { "include": "#declaration" }, { "include": "#conditional" }, { "include": "#logging" }, { "include": "#paren-expression" }, { "include": "#inline-comment" }]
+			"patterns": [{ "include": "#keyword" }, { "include": "#declaration" }, { "include": "#conditional" }, { "include": "#logging" }, { "include": "#execution" }, { "include": "#paren-expression" }, { "include": "#inline-comment" }]
 		},
 		"string-literal": {
-			"match": "\\'[a-zA-Z0-9\\s_\\-%=\\/\\+\\&\\|,]*\\'",
+			"match": "\\'[a-zA-Z0-9\\s_\\-\\:\\*%=\\/\\+\\&\\|,]*\\'",
 			"name": "string.decryptic"
 		},
 		"type": {
@@ -63,6 +54,10 @@
 		"conditional": {
 			"match": "\\b((?i)GoTo|If|Else|EndIf|InRange|OutRange|EndRange|Label|While|EndWhile|AND|OR)\\b",
 			"name": "keyword.control.decryptic"
+		},
+		"execution": {
+			"match": "\\b((?i)Section.*\\)|EndProcedure|Exit|LoadGlobal|SaveGlobal|Execute|Procedure.*\\)|End)",
+			"name": "support.type.decryptic"
 		},
 		"ascii-char": {
 			"match": "(\\$[0-9]\\d*)\\b",
