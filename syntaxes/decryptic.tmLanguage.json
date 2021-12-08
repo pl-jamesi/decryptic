@@ -10,6 +10,12 @@
 		},
 		{
 			"include": "#section-lines"
+		},
+		{
+			"include": "#declarative-lines"
+		},
+		{
+			"include": "#parameterized-lines"
 		}
 	],
 	"repository": {
@@ -32,6 +38,24 @@
 				"name": "support.type.decryptic",
 				"match": "^\\s*Section.*"
 			}]
+		},
+		"declarative-lines": {
+			"captures": {
+				"2": {
+					"name": "variable.parameter.decryptic"
+				}
+			},
+			"match": "(^\\s*)((?i)Array|Declare|Global|Map|Set|Update|EndUpdate)(\\(.*\\))",
+			"name": "parameterized-line.decryptic"
+		},
+		"parameterized-lines": {
+			"captures": {
+				"2": {
+					"name": "entity.name.function.decryptic"
+				}
+			},
+			"match": "(^\\s*)((?i)Add|Append|BatchFirst|BatchLast|Char|CheckLabNo|CheckSum|Convertcase|CopyStr|Datetime|DeclareMean|Decode|Delay|Delete|DeleteLL|Div|Encode|EXP|Field|Format|Get|GetAnaParams|GetBatchKeys|GetBatSeqKeys|GetError|GetIpParams|GetOpParams|Getmean|InsertLit|InsertLL|Integer|Length|LN|LoadCurrent|LoadData|LRC|Mean|Mult|NullRecord|Ord|Positn|ReadMessage|Real|Register|ReplaceLt|Round|SaveData|SaveUpdate|Schedule|SelectLLBS|SelectLLReqno|SetMean|SetSent|StoreLL|Sub|Succ|Westgard)(\\(.*\\))",
+			"name": "parameterized-line.decryptic"
 		}
 	},
 	"scopeName": "source.decryptic"
