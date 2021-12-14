@@ -52,11 +52,11 @@
 			"name": "variable.parameter.decryptic"
 		},
 		"conditional": {
-			"match": "\\b((?i)GoTo|If|Else|EndIf|InRange|OutRange|EndRange|Label|While|EndWhile|AND|OR)\\b",
+			"match": "\\b((?i)If|Else|EndIf|InRange|OutRange|EndRange|While|EndWhile|AND|OR)\\b",
 			"name": "keyword.control.decryptic"
 		},
 		"execution": {
-			"match": "\\b((?i)Section.*\\)|EndProcedure|Exit|LoadGlobal|SaveGlobal|Execute|Procedure.*\\)|End)",
+			"match": "\\b((?i)Section.*\\)|EndProcedure|Exit|GoTo|Label|LoadGlobal|SaveGlobal|Execute|Procedure.*\\)|End)",
 			"name": "support.type.decryptic"
 		},
 		"ascii-char": {
