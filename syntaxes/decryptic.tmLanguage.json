@@ -64,7 +64,7 @@
 			"name": "constant.character.escape.backslash.decryptic"
 		},
 		"numeric-literal": {
-			"match": "([0-9]\\d*)\\b",
+			"match": "\\b([0-9]\\d*)\\b",
 			"name": "constant.numeric.decimal.decryptic"
 		},
 		"inline-comment": {
@@ -93,7 +93,7 @@
 			  "0": { "name": "punctuation.paren.close" }
 			},
 			"name": "expression.group",
-			"patterns": [{ "include": "#string-literal" }, { "include": "#ascii-char" }, { "include": "#numeric-literal" }, { "include": "#type" }, { "include": "#operator" }]
+			"patterns": [{ "include": "#numeric-literal" }, { "include": "#string-literal" }, { "include": "#ascii-char" }, { "include": "#type" }, { "include": "#operator" }]
 		}
 	},
 	"scopeName": "source.decryptic"
