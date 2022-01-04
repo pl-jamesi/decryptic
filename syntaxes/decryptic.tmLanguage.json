@@ -40,7 +40,7 @@
 			"patterns": [{ "include": "#keyword" }, { "include": "#declaration" }, { "include": "#conditional" }, { "include": "#logging" }, { "include": "#execution" }, { "include": "#paren-expression" }, { "include": "#inline-comment" }]
 		},
 		"string-literal": {
-			"match": "\\'[a-zA-Z0-9\\s\\$\\^_\\-\\:\\*%=\\/\\+\\&\\|,]*\\'",
+			"match": "\\'[a-zA-Z0-9\\s\\$\\<\\>\\^_\\-\\:\\*%=\\/\\+\\&\\|,]*\\'",
 			"name": "string.decryptic"
 		},
 		"type": {
