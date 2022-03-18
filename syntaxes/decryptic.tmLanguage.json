@@ -9,6 +9,9 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#multi-comments"
+		},
+		{
 			"include": "#expression"
 		}
 	],
@@ -26,6 +29,24 @@
 				"name": "comment.line.decryptic",
 				"match": "^\\s*!.*"
 			}]
+		},
+		"commented": {
+			"patterns": [{
+				"name": "comment.line.decryptic",
+				"match": ".*\\}"
+			}]
+		},
+		"multi-comments": {
+			"begin": "^\\{",
+			"end": "\\}",
+			"beginCaptures": {
+			  "0": { "name": "comment.line.decryptic" }
+			},
+			"endCaptures": {
+			  "0": { "name": "comment.line.decryptic" }
+			},
+			"name": "comment.line.decryptic",
+			"patterns": [{ "include": "#commented" }]
 		},
 		"declarative-lines": {
 			"captures": {
