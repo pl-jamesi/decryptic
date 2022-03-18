@@ -2,7 +2,7 @@
     "name": "decryptic",
     "displayName": "Decryptic",
     "description": "Delphic LIS Decryptic VS Code Syntax Highlighting",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "James Ingerson",
     "license": "MIT",
     "repository": {
